@@ -27,8 +27,9 @@ export default {
         </div>
 
         <div class="">
-            <input class="mx-3 p-1" type="text" placeholder="Search..." v-model.trim="searchInput" @keyup.enter="$emit('search')" />
-            <button class="btn btn-warning px-5" @click="$emit('search')">Click</button>
+            <input class="mx-3 p-1" type="text" placeholder="Search..." v-model.trim="searchInput"
+                @keyup.enter="$emit('search', searchInput)" />
+            <button class="btn btn-warning px-5" @click="$emit('search', searchInput)">Click</button>
         </div>
     </header>
 </template>

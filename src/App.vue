@@ -9,22 +9,28 @@ export default {
     AppHeader,
     AppMain,
   },
-  data() {
-    return {
-      api_key: "bfa02625404f494fc92249458d5ba46f",
-      apiUrlMovies: "https://api.themoviedb.org/3/search/movie",
-      apiUrlSeries: "https://api.themoviedb.org/3/search/tv",
-    }
-  }
-}
+  methods: {
+    async searchMoviesAndSeries(searchInput) {
+      const responseMovies = await axios.get(store.apiUrlMovies, {
+        params: { api_key: store.api_key, query: searchInput },
+      });
 
+      const responseSeries = await axios.get(store.apiUrlSeries, {
+        params: { api_key: store.api_key, query: searchInput },
+      });
+
+      store.arrayMovies = responseMovies.data.results;
+      store.arraySeries = responseSeries.data.results;
+    },
+  },
+};
 </script>
 
 <template>
-  <AppHeader title="BoolFlix"></AppHeader>
+  <AppHeader title="BoolFlix" @search="searchMoviesAndSeries"></AppHeader>
   <AppMain></AppMain>
 </template>
 
-<style lang="scss">
-@use './assets/styles/general.scss';
+<style lang="scss" scoped>
+@use "./assets/styles/general.scss";
 </style>
