@@ -1,0 +1,8 @@
+@use "./general.scss";
+@use "./partials/variables" as c;
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
