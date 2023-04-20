@@ -7,4 +7,9 @@ header {
     h2 {
         color: c.$title-color;
     }
+
+    li {
+        color: c.$g-color;
+        cursor: pointer;
+    }
 }

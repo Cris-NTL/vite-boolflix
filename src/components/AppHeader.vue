@@ -22,14 +22,24 @@ export default {
 
 <template>
     <header class="w-100 p-3 d-flex align-items-center justify-content-between">
-        <div>
-            <h2>{{ title }}</h2>
+        <div class="d-flex">
+            <h2 class="m-0">{{ title }}</h2>
+
+            <ul class="categories m-0 d-flex align-items-center gap-4">
+                <li>HOME</li>
+                <li>TV SERIES</li>
+                <li>MOVIES</li>
+                <li>ORIGINALS</li>
+                <li>RECENTLY UPDATED</li>
+                <li>MY LIST</li>
+            </ul>
+
         </div>
 
-        <div class="">
+        <div class="d-flex align-items-center">
             <input class="mx-3 p-1" type="text" placeholder="Search..." v-model.trim="searchInput"
                 @keyup.enter="$emit('search', searchInput)" />
-            <button class="btn btn-warning px-5" @click="$emit('search', searchInput)">Click</button>
+            <button class="btn btn-danger px-5" @click="$emit('search', searchInput)">Click</button>
         </div>
     </header>
 </template>
