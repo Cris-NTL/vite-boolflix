@@ -25,7 +25,7 @@ export default {
 </script>
 
 <template>
-    <div class="movie-card"> <!-- Update class name to match appmoviecard.vue -->
+    <div class="series-card"> <!-- Update class name to match appmoviecard.vue -->
         <div class="h-100">
             <img :src="`https://image.tmdb.org/t/p/w342${series.poster_path}`" class="card-img-top h-100"
                 alt="Series poster" />

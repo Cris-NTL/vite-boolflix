@@ -17,33 +17,37 @@ export default {
             return store.arraySeries;
         },
     },
+    methods: {
+        handleWheel(event) {
+            const horizontalScrollSpeed = 1; 
+
+            event.currentTarget.scrollLeft += event.deltaY * horizontalScrollSpeed;
+        },
+    },
 };
 </script>
 
 <template>
     <div class="container">
-        <div class="row">
+        <div class="row my-5">
+            <h3>Movies:</h3>
             <div class="col">
-                <h3>Movies:</h3>
-                <div class="movie-cards-wrapper">
-                    <div class="movie-cards">
-                        <AppMovieCard v-for="(movie, index) in arrayMovies" :key="index" :movie="movie" />
-                    </div>
+                <div class="cards-container" ref="cardsContainerMovies" @wheel="handleWheel">
+                    <AppMovieCard v-for="(movie, index) in arrayMovies" :key="index" :movie="movie" />
                 </div>
             </div>
         </div>
-        <div class="row">
+        <div class="row my-5">
             <div class="col">
                 <h3>Series:</h3>
-                <div class="series-cards-wrapper">
-                    <div class="series-cards">
-                        <AppSeriesCard v-for="(series, index) in arraySeries" :key="index" :series="series" />
-                    </div>
+                <div class="cards-container" ref="cardsContainerSeries" @wheel="handleWheel">
+                    <AppSeriesCard v-for="(series, index) in arraySeries" :key="index" :series="series" />
                 </div>
             </div>
         </div>
     </div>
 </template>
+
 <style lang="scss" scoped>
 @use "../assets/styles/appMain.scss";
 </style>
