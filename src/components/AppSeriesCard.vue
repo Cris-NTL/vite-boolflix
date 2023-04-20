@@ -25,11 +25,13 @@ export default {
 </script>
 
 <template>
-    <div class="card">
-        <div>
-            <img :src="`https://image.tmdb.org/t/p/w342${series.poster_path}`" class="card-img-top" alt="Series poster" />
+    <div class="movie-card"> <!-- Update class name to match appmoviecard.vue -->
+        <div class="h-100">
+            <img :src="`https://image.tmdb.org/t/p/w342${series.poster_path}`" class="card-img-top h-100"
+                alt="Series poster" />
         </div>
-        <div class="card-body">
+
+        <div class="card-body d-none"> <!-- Update class name to match appmoviecard.vue -->
             <h5 class="card-title">{{ series.name }}</h5>
             <h6 class="card-text">{{ series.original_title }}</h6>
             <div class="card-text">
@@ -49,5 +51,3 @@ export default {
 <style lang="scss">
 @use "../assets/styles/appCard.scss";
 </style>
-
-

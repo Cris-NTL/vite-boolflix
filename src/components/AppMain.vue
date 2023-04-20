@@ -22,21 +22,28 @@ export default {
 
 <template>
     <div class="container">
-        <div class="row d-flex flex-wrap justify-content-center">
-            <h3>Movies:</h3>
-            <div class="col-md-4" v-for="(movie, index) in arrayMovies" :key="index">
-                <AppMovieCard :movie="movie"></AppMovieCard>
+        <div class="row">
+            <div class="col">
+                <h3>Movies:</h3>
+                <div class="movie-cards-wrapper">
+                    <div class="movie-cards">
+                        <AppMovieCard v-for="(movie, index) in arrayMovies" :key="index" :movie="movie" />
+                    </div>
+                </div>
             </div>
         </div>
-        <div class="row d-flex flex-wrap justify-content-center">
-            <h3>Series:</h3>
-            <div class="col-md-4" v-for="(series, index) in arraySeries" :key="index">
-                <AppSeriesCard :series="series"></AppSeriesCard>
+        <div class="row">
+            <div class="col">
+                <h3>Series:</h3>
+                <div class="series-cards-wrapper">
+                    <div class="series-cards">
+                        <AppSeriesCard v-for="(series, index) in arraySeries" :key="index" :series="series" />
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 </template>
-
 <style lang="scss" scoped>
 @use "../assets/styles/appMain.scss";
 </style>
