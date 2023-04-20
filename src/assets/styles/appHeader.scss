@@ -11,5 +11,22 @@ header {
     li {
         color: c.$g-color;
         cursor: pointer;
+        transition: transform 0.2s linear;
+
+        &:hover {
+            transform: scale(1.2);
+            border-bottom: 2px solid c.$g-color;
+        }
+    }
+}
+
+#btn {
+    background-color: c.$title-color;
+    color: c.$g-color;
+    font-weight: bold;
+    transition: transform 0.2s linear;
+
+    &:hover {
+        transform: scale(1.1);
     }
 }

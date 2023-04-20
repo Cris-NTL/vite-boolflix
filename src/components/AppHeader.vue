@@ -39,7 +39,7 @@ export default {
         <div class="d-flex align-items-center">
             <input class="mx-3 p-1" type="text" placeholder="Search..." v-model.trim="searchInput"
                 @keyup.enter="$emit('search', searchInput)" />
-            <button class="btn btn-danger px-5" @click="$emit('search', searchInput)">Click</button>
+            <button id="btn" class="btn px-5" @click="$emit('search', searchInput)">Click</button>
         </div>
     </header>
 </template>
