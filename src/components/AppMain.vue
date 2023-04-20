@@ -29,17 +29,17 @@ export default {
 
 <template>
     <div class="container">
-        <div class="row my-5">
-            <h3>Movies:</h3>
+        <div class="row mb-5">
             <div class="col">
+                <h3>Original BoolFlix Movies:</h3>
                 <div class="cards-container" ref="cardsContainerMovies" @wheel="handleWheel">
                     <AppMovieCard v-for="(movie, index) in arrayMovies" :key="index" :movie="movie" />
                 </div>
             </div>
         </div>
-        <div class="row my-5">
+        <div class="row mb-5">
             <div class="col">
-                <h3>Series:</h3>
+                <h3>Original BoolFlix Series:</h3>
                 <div class="cards-container" ref="cardsContainerSeries" @wheel="handleWheel">
                     <AppSeriesCard v-for="(series, index) in arraySeries" :key="index" :series="series" />
                 </div>

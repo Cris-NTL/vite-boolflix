@@ -6,13 +6,15 @@
 }
 
 .row {
-    height: calc(100% / 3);
+    height: calc(100% / 2 - 70px);
+}
+
+h3{
+    color: c.$g-color;
 }
 
 .cards-container {
-    height: 50vh;
     overflow-x: hidden;
     overflow-y: hidden;
     white-space: nowrap;
-    padding: 1rem 0;
 }
