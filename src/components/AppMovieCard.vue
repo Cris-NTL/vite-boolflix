@@ -12,8 +12,13 @@ export default {
         },
     },
     methods: {
-        getCountryCode(languageCode) { 
+        getCountryCode(languageCode) {
             return store.languageToCountry[languageCode] || languageCode;
+        },
+        isStarFilled(index) {
+            const adjustedRating = this.movie.vote_average / 2;
+            const roundedRating = Math.ceil(adjustedRating);
+            return index < roundedRating;
         },
     },
 };
@@ -21,14 +26,23 @@ export default {
 
 <template>
     <div class="card">
-        <img :src="`https://image.tmdb.org/t/p/w342${movie.poster_path}`" class="card-img-top" alt="Movie poster" />
+        <div>
+            <img :src="`https://image.tmdb.org/t/p/w342${movie.poster_path}`" class="card-img-top" alt="Movie poster" />
+        </div>
+
         <div class="card-body">
             <h5 class="card-title">{{ movie.title }}</h5>
             <h6 class="card-text">{{ movie.original_title }}</h6>
-            <p class="card-text">
+            <div class="card-text">
                 <span :class="['fi', flagIconClass]"></span>
-            </p>
-            <p class="card-text">{{ movie.vote_average }}</p>
+            </div>
+            <div class="card-text">
+                <i v-for="index in 5" :key="`star-${index}`"
+                    :class="isStarFilled(index - 1) ? 'fas fa-star' : 'fa fa-star'"></i>
+            </div>
+            <div class="card-text">
+                <span>{{ movie.overview }}</span>
+            </div>
         </div>
     </div>
 </template>
