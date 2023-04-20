@@ -1,4 +1,6 @@
 <script>
+import { store } from '../store';
+
 export default {
     name: 'AppSeriesCard',
     props: {
@@ -11,64 +13,10 @@ export default {
     },
     methods: {
         getCountryCode(languageCode) {
-            const languageToCountry = {
-                af: 'za',
-                ar: 'sa',
-                bg: 'bg',
-                bn: 'bd',
-                ca: 'es',
-                cs: 'cz',
-                cy: 'gb',
-                da: 'dk',
-                de: 'de',
-                el: 'gr',
-                en: 'gb',
-                es: 'es',
-                et: 'ee',
-                fa: 'ir',
-                fi: 'fi',
-                fr: 'fr',
-                gu: 'in',
-                he: 'il',
-                hi: 'in',
-                hr: 'hr',
-                hu: 'hu',
-                id: 'id',
-                it: 'it',
-                ja: 'jp',
-                kn: 'in',
-                ko: 'kr',
-                lt: 'lt',
-                lv: 'lv',
-                ml: 'in',
-                mr: 'in',
-                ms: 'my',
-                nl: 'nl',
-                no: 'no',
-                pa: 'in',
-                pl: 'pl',
-                pt: 'pt',
-                ro: 'ro',
-                ru: 'ru',
-                sk: 'sk',
-                sl: 'si',
-                sq: 'al',
-                sr: 'rs',
-                sv: 'se',
-                ta: 'in',
-                te: 'in',
-                th: 'th',
-                tr: 'tr',
-                uk: 'ua',
-                ur: 'pk',
-                vi: 'vn',
-                zh: 'cn',
-                zu: 'za',
-            };
-            return languageToCountry[languageCode] || languageCode;
+            return store.languageToCountry[languageCode] || languageCode;
         },
     },
-}
+};
 </script>
 
 <template>
