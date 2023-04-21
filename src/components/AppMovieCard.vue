@@ -3,6 +3,11 @@ import { store } from '../store';
 
 export default {
     name: 'AppMovieCard',
+    data() {
+        return {
+            showDetails: false,
+        };
+    },
     props: {
         movie: Object,
     },
@@ -25,24 +30,24 @@ export default {
 </script>
 
 <template>
-    <div class="movie-card">
-        <div class="h-100">
+    <div class="movie-card mx-1" @click="showDetails = !showDetails">
+        <div v-if="!showDetails">
             <img :src="`https://image.tmdb.org/t/p/w342${movie.poster_path}`" class="card-img-top h-100"
                 alt="Movie poster" />
         </div>
 
-        <div class="card-body">
-            <h5 class="card-title">{{ movie.title }}</h5>
-            <h6 class="card-text">{{ movie.original_title }}</h6>
-            <div class="card-text">
+        <div class="card-body p-1" v-else>
+            <h5 class="card-title mb-2">Title: {{ movie.title }}</h5>
+            <h6 class="card-text mb-2">Original TItle: {{ movie.original_title }}</h6>
+            <div class="card-text mb-2">
                 <span :class="['fi', flagIconClass]"></span>
             </div>
-            <div class="card-text">
-                <i v-for="index in 5" :key="`${index}`"
-                    :class="isStarFilled(index - 1) ? 'fas fa-star' : 'fa fa-star'"></i>
+            <div class="card-text mb-2">
+                <span>Rating:</span><br>
+                <i v-for="index in 5" :key="`${index}`" :class="isStarFilled(index - 1) ? 'fas fa-star' : 'fa fa-star'"></i>
             </div>
             <div class="card-text">
-                <span>{{ movie.overview }}</span>
+                <span>Overview: <br> {{ movie.overview }}</span>
             </div>
         </div>
     </div>

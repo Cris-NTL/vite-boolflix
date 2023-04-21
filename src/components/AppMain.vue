@@ -19,9 +19,11 @@ export default {
     },
     methods: {
         handleWheel(event) {
-            const horizontalScrollSpeed = 1; 
-
-            event.currentTarget.scrollLeft += event.deltaY * horizontalScrollSpeed;
+            const horizontalScrollSpeed = 1;
+            const isCardBody = event.target.closest('.card-body');
+            if (!isCardBody) {
+                event.currentTarget.scrollLeft += event.deltaY * horizontalScrollSpeed;
+            }
         },
     },
 };

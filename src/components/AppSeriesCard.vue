@@ -3,6 +3,11 @@ import { store } from '../store';
 
 export default {
     name: 'AppSeriesCard',
+    data() {
+        return {
+            showDetails: false,
+        };
+    },
     props: {
         series: Object,
     },
@@ -25,24 +30,25 @@ export default {
 </script>
 
 <template>
-    <div class="series-card"> <!-- Update class name to match appmoviecard.vue -->
-        <div class="h-100">
+    <div class="series-card mx-1" @click="showDetails = !showDetails">
+        <div v-if="!showDetails">
             <img :src="`https://image.tmdb.org/t/p/w342${series.poster_path}`" class="card-img-top h-100"
                 alt="Series poster" />
         </div>
 
-        <div class="card-body d-none"> <!-- Update class name to match appmoviecard.vue -->
-            <h5 class="card-title">{{ series.name }}</h5>
-            <h6 class="card-text">{{ series.original_title }}</h6>
-            <div class="card-text">
+        <div class="card-body p-1" v-else>
+            <h5 class="card-title mb-2">Title: {{ series.name }}</h5>
+            <h6 class="card-text mb-2">Original Title: {{ series.original_name }}</h6>
+            <div class="card-text mb-2">
                 <span :class="['fi', flagIconClass]"></span>
             </div>
-            <div class="card-text">
+            <div class="card-text mb-2">
+                <span>Rating:</span><br>
                 <i v-for="index in 5" :key="`star-${index}`"
                     :class="isStarFilled(index - 1) ? 'fas fa-star' : 'fa fa-star'"></i>
             </div>
             <div class="card-text">
-                <span>{{ series.overview }}</span>
+                <span>Overview: <br> {{ series.overview }}</span>
             </div>
         </div>
     </div>
