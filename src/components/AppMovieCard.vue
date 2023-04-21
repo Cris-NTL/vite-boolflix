@@ -31,14 +31,14 @@ export default {
                 alt="Movie poster" />
         </div>
 
-        <div class="card-body d-none">
+        <div class="card-body">
             <h5 class="card-title">{{ movie.title }}</h5>
             <h6 class="card-text">{{ movie.original_title }}</h6>
             <div class="card-text">
                 <span :class="['fi', flagIconClass]"></span>
             </div>
             <div class="card-text">
-                <i v-for="index in 5" :key="`star-${index}`"
+                <i v-for="index in 5" :key="`${index}`"
                     :class="isStarFilled(index - 1) ? 'fas fa-star' : 'fa fa-star'"></i>
             </div>
             <div class="card-text">
